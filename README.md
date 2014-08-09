@@ -25,3 +25,4 @@ public static <T,U extends T,O> O match(U o, Branch<T,O>... branches) {
 }
 ~~~
 
+A `Branch` is a simple tuple of a Hamcrest `Matcher` and a Java 8 `Supplier`.
