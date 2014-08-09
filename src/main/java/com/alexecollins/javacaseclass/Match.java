@@ -4,8 +4,8 @@ import org.hamcrest.Matcher;
 
 import java.util.function.Supplier;
 
-public final class Switch {
-    private Switch() {
+public final class Match {
+    private Match() {
     }
 
     public abstract static class AbstractBranch<T> {

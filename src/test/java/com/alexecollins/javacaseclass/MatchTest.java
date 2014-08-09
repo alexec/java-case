@@ -2,16 +2,14 @@ package com.alexecollins.javacaseclass;
 
 import org.junit.Test;
 
-import static com.alexecollins.javacaseclass.Switch.match;
-import static com.alexecollins.javacaseclass.Switch.when;
+import static com.alexecollins.javacaseclass.Match.match;
+import static com.alexecollins.javacaseclass.Match.when;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.IsInstanceOf.any;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class SwitchTest {
+public class MatchTest {
 
     @Test
     public void matchVoid() throws Exception {
@@ -26,8 +24,8 @@ public class SwitchTest {
     public void matchNormal() throws Exception {
         int x = match(
                 new MyValueObject1(0),
-                when(instanceOf(MyValueObject.class), () -> 0),
-                when(any(MyValueObject.class), () -> {fail();return 0;})
+                when(equalTo(new MyValueObject1(0)), () -> 0),
+                when(not(new MyValueObject1(0)), () -> 1)
         );
 
         assertEquals(0, x);
